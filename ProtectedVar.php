@@ -7,45 +7,33 @@
  * https://github.com/deathscore13/ProtectedVar
  */
 
-final class ProtectedVar
+trait ProtectedVar
 {
-    private mixed $var;
-    private bool $protected = false;
-
-    /**
-     * Можно мгновенно присвоить значение и запретить изменения
-     */
-	public function __construct($var = null)
-	{
-		if ($var !== null)
-		{
-			$this->var = $var;
-			$this->protected = true;
-		}
-	}
+    private static mixed $var;
+    private static bool $protected = false;
     
     /**
      * Установка значения переменной
      */
-    public function set($var): void
+    public static function set($var): void
     {
-        if (!$this->protected)
-            $this->var = $var;
+        if (!self::$protected)
+            self::$var = $var;
     }
     
     /**
      * Защитить переменную от изменений
      */
-    public function protect(): void
+    public static function protect(): void
     {
-        $this->protected = true;
+        self::$protected = true;
     }
     
     /**
      * Получить значение переменной
      */
-    public function get(): mixed
+    public static function get(): mixed
     {
-        return $this->var;
+        return self::$var;
     }
 }
