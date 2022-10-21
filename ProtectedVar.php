@@ -10,30 +10,15 @@
 trait ProtectedVar
 {
     private static mixed $var;
-    private static bool $protected = false;
     
     /**
-     * Установка значения переменной
+     * Установка/получение значения переменной
      */
-    public static function set($var): void
+    public static function __callStatic(string $name, array $arg): mixed
     {
-        if (!self::$protected)
-            self::$var = $var;
-    }
-    
-    /**
-     * Защитить переменную от изменений
-     */
-    public static function protect(): void
-    {
-        self::$protected = true;
-    }
-    
-    /**
-     * Получить значение переменной
-     */
-    public static function get(): mixed
-    {
-        return self::$var;
+        if (!isset(self::$var[$name]))
+            self::$var[$name] = $arg[0];
+        
+        return self::$var[$name];
     }
 }
