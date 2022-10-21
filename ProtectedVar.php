@@ -21,7 +21,7 @@ trait ProtectedVar
             if (!isset($arg[0]))
             {
                 throw new Exception('Переменная не существует');
-                return;
+                return null;
             }
             self::$var[$name] = $arg[0];
         }
