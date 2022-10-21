@@ -9,7 +9,7 @@
 
 trait ProtectedVar
 {
-    private static mixed $var;
+    private static array $var;
     
     /**
      * Установка/получение значения переменной
@@ -17,8 +17,27 @@ trait ProtectedVar
     public static function __callStatic(string $name, array $arg): mixed
     {
         if (!isset(self::$var[$name]))
+        {
+            if (!isset($arg[0]))
+            {
+                throw new Exception('Переменная не существует');
+                return;
+            }
             self::$var[$name] = $arg[0];
+        }
         
         return self::$var[$name];
+    }
+    
+    /**
+     * Проверяет существованиче переменной
+     * 
+     * @param string $name      Имя переменной
+     * 
+     * @return bool             true если существует, false если нет
+     */
+    public static function isset(string $name): bool
+    {
+        return isset(self::$var[$name]);
     }
 }
