@@ -27,5 +27,5 @@ Safe::var1(321);
 echo(Safe::var1().PHP_EOL);
 
 // проверка существования переменной var1
-echo(Safe::isset('var1') ? 1 : 0);
+echo((Safe::isset('var1') ? 1 : 0).PHP_EOL);
 ```
