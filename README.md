@@ -52,7 +52,13 @@ echo($c2->var.' | '.Safe::var2()->var.PHP_EOL);
 $c->var = 2;
 echo(Safe::var2()->var.PHP_EOL);
 
-// вы можете использовать unset(), чтобы избежать этого
+// вы можете использовать clone при установке значения или unset(), чтобы избежать этого
+Safe::var3(clone $c);
+$c->var = 3;
+
+// вывод: 2
+echo(Safe::var3()->var.PHP_EOL);
+
 unset($c);
 $c->var = 3; // ошибка
 ```
