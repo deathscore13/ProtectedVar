@@ -9,24 +9,28 @@
 
 trait ProtectedVar
 {
-    private static array $var;
-    
     /**
      * Установка/получение значения переменной
      */
     public static function __callStatic(string $name, array $arg): mixed
     {
-        if (!isset(self::$var[$name]))
+        static $var = [];
+        static $clone = [];
+
+        if (!isset($var[$name]))
         {
             if (!isset($arg[0]))
             {
                 throw new Exception('Переменная не существует');
                 return null;
             }
-            self::$var[$name] = $arg[0];
+            $var[$name] = $arg[0];
+
+            if (isset($arg[1]) && $arg[1] === true)
+                $clone[] = $name;
         }
         
-        return self::$var[$name];
+        return in_array($name, $clone) ? (clone $var[$name]) : $var[$name];
     }
     
     /**
@@ -38,6 +42,14 @@ trait ProtectedVar
      */
     public static function isset(string $name): bool
     {
-        return isset(self::$var[$name]);
+        try
+        {
+            self::class::$name();
+        }
+        catch (Exception $e)
+        {
+            return false;
+        }
+        return true;
     }
 }
