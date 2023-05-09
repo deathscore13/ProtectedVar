@@ -21,7 +21,7 @@ trait ProtectedVar
         {
             if (!isset($arg[0]))
             {
-                throw new Exception('Переменная не существует');
+                throw new Exception('Undefined variable "'.$name.'"');
                 return null;
             }
             $var[$name] = $arg[0];
