@@ -20,10 +20,8 @@ trait ProtectedVar
         if (!isset($var[$name]))
         {
             if (!isset($arg[0]))
-            {
-                throw new Exception('Undefined variable "'.$name.'"');
-                return null;
-            }
+                throw new Exception('Undefined variable $'.$name);
+            
             $var[$name] = $arg[0];
 
             if (isset($arg[1]) && $arg[1] === true)
