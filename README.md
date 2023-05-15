@@ -2,7 +2,7 @@
 ### Позволяет защитить переменную от изменений для PHP 8.0.0+<br><br>
 
 Советую открыть **`ProtectedVar.php`** и почитать описания `var()` и `isset()`<br><br>
-Рекомендую ознакомиться со [справочником по ссылкам](https://www.php.net/manual/ru/language.references.php)
+Рекомендую также ознакомиться со [справочником по ссылкам](https://www.php.net/manual/ru/language.references.php)
 
 <br><br>
 ## Ограничения PHP
@@ -16,7 +16,7 @@
 // подключение ProtectedVar
 require('ProtectedVar.php');
 
-// создание псевдо-объекта с переменными, которые нужно защитить
+// создание псевдо-области с переменными, которые нужно защитить
 abstract class Safe
 {
     // подключение возможностей из ProtectedVar
@@ -65,5 +65,5 @@ $var2 = Safe::var2();
 $var2->var = 2;
 
 // вывод: 2
-echo($var2->var.PHP_EOL);
+echo($c->var.PHP_EOL);
 ```
