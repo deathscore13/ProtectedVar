@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ProtectedVar
+ * ProtectedVar 1.0.0
  * 
  * Позволяет защитить переменную от изменений для PHP 8.0.0+
  * https://github.com/deathscore13/ProtectedVar

@@ -1,4 +1,4 @@
-# ProtectedVar
+# ProtectedVar 1.0.0
 ### Позволяет защитить переменную от изменений для PHP 8.0.0+<br><br>
 
 Советую открыть **`ProtectedVar.php`** и почитать описания `var()` и `isset()`<br><br>
