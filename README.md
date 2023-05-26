@@ -1,7 +1,7 @@
 # ProtectedVar
 ### Позволяет защитить переменную от изменений для PHP 8.0.0+<br><br>
 
-Советую открыть **`ProtectedVar.php`** и почитать описания `var()` и `isset()`<br><br>
+Советую открыть **`ProtectedVar.php`** и почитать описания методов<br><br>
 Рекомендую также ознакомиться со [справочником по ссылкам](https://www.php.net/manual/ru/language.references.php)
 
 <br><br>
