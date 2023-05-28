@@ -14,7 +14,7 @@
 **`main.php`**:
 ```php
 // подключение ProtectedVar
-require('ProtectedVar.php');
+require('ProtectedVar/ProtectedVar.php');
 
 // создание псевдо-области с переменными, которые нужно защитить
 abstract class Safe
